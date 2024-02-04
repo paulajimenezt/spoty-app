@@ -1,0 +1,27 @@
+@import "../../App.module.scss";
+
+.defaultButton {
+    background-color: $secondary-color;
+    border-radius: 1rem;
+    width: 7rem;
+    height: 2em;
+    padding-bottom: 0.3rem 0.3rem;
+    margin-bottom: 6vh;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+.loginButton {
+    border-radius: 1rem;
+    width: 7rem;
+    height: 2em;
+    padding-bottom: 0.3rem 0.3rem;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    text-align: center;
+    background-color: $tertiary-color;
+    margin-bottom: 0;
+}

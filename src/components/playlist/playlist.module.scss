@@ -1,0 +1,30 @@
+@import "../../App.module.scss";
+
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $secondary-color;
+    color: white;
+    min-width: 35vw;
+    height: 50vh;
+    border-radius: 1.5rem;
+}
+
+.container {
+   position: relative;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-color: white;
+    color: white;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    outline: none;
+}

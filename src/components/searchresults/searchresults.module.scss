@@ -1,0 +1,16 @@
+@import "../../App.module.scss";
+
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 55vw;
+    height: 50vh;
+    border-radius: 1.5rem;
+    background-color: $secondary-color;
+}
+
+.container {
+    color: white;
+}

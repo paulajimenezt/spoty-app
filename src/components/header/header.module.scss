@@ -1,0 +1,17 @@
+@import "../../App.module.scss";
+
+header {
+    background-color: $secondary-color;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    height: 9vh;
+}
+
+.buttonContainer {
+    position: absolute;
+    margin-right: 1rem;
+    right: 0;
+}

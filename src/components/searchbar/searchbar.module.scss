@@ -1,0 +1,21 @@
+@import "../../App.module.scss";
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+}
+
+.searchBar {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchInput {
+  border: none;
+  padding: 0.2rem 1rem;
+  width: 25vw;
+  font-size: 16px;
+}

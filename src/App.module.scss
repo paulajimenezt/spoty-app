@@ -1,0 +1,16 @@
+$background-color: #000022;
+$primary-color: #001242;
+$secondary-color: #25a52b;
+$tertiary-color: #1f6c70;
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: $background-color;
+}
+
+.trackLists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
