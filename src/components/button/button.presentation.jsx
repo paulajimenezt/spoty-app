@@ -2,8 +2,13 @@ import React from "react";
 import styles from "./button.module.scss";
 
 function Button(props) {
+  const buttonFunction = props.onClick;
+  const buttonParameter = props.buttonParameter || undefined;
   return (
-    <button className={styles[props.style]} onClick={props.onClick}>
+    <button
+      className={styles[props.style]}
+      onClick={() => buttonFunction(buttonParameter)}
+    >
       {props.text}
     </button>
   );

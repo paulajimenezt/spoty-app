@@ -12,7 +12,7 @@ function TrackView(props) {
         <p className={styles.info}> {title}</p>
         <p className={styles.info}>
           {" "}
-          {artist}| {album}
+          {artist}  |  {album}
         </p>
       </div>
       <div className={styles.buttonContainer}>

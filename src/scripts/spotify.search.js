@@ -3,10 +3,17 @@ export const searchSong = async (query) => {
 
   if (!accessToken || accessToken === "undefined") {
     console.log("Can't complete search: not logged in!");
-    return;
+    return {};
   }
 
-  const requestUrl = "https://api.spotify.com/v1/search";
+  const baseURL = "https://api.spotify.com/v1/search";
+  const queryParams = {
+    q: `${query}`,
+    type: "track",
+  };
+
+  const url = new URL(baseURL);
+  url.search = new URLSearchParams(queryParams).toString();
 
   const payload = {
     method: "GET",
@@ -14,17 +21,25 @@ export const searchSong = async (query) => {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: `Bearer ${accessToken}`,
     },
-    query: new URLSearchParams({}),
   };
 
-  const body = await fetch(requestUrl, payload);
+  const body = await fetch(url, payload);
   const response = await body.json();
   if (response.error) {
     console.error(
-      `Error getting access token: ${response.error} - ${response.error_description}`
+      `Error searching the song in spotify: ${JSON.stringify(response)}`
     );
-    localStorage.removeItem("code_verifier");
   } else {
-    localStorage.setItem("access_token", response.access_token);
+    if (response?.tracks?.items?.length) {
+      const mappedResponse = response.tracks.items.map((track) => {
+        return {
+          title: track.name,
+          artist: track.artists[0].name,
+          album: track.album.name,
+        };
+      });
+      return mappedResponse || [];
+    }
+    return [];
   }
 };
