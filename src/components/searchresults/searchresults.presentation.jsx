@@ -8,7 +8,11 @@ function SearchResultsView(props) {
       <div className={styles.container}>
         <h1>Results</h1>
       </div>
-      <TrackList songList={props.songList} addSong={props.addSong} />
+      <TrackList
+        trackList={props.trackList}
+        symbol={true}
+        buttonFunction={props.buttonFunction}
+      />
     </div>
   );
 }

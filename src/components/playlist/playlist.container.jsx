@@ -4,7 +4,7 @@ import PlayListView from "./playlist.presentation";
 function PlayList(props) {
   return (
     <div>
-      <PlayListView playSongs={props.playSongs} />
+      <PlayListView trackList={props.trackList} buttonFunction={props.buttonFunction} />
     </div>
   );
 }

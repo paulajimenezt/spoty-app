@@ -3,7 +3,10 @@ import SearchResultsView from "./searchresults.presentation";
 
 function SearchResults(props) {
   return (
-    <SearchResultsView songList={props.songList} addSong={props.addSong} />
+    <SearchResultsView
+      trackList={props.trackList}
+      buttonFunction={props.buttonFunction}
+    />
   );
 }
 

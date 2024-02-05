@@ -8,7 +8,7 @@ function PlayListView(props) {
       <div className={styles.container}>
         <input className={styles.input}></input>
       </div>
-      <TrackList songList={props.playSongs} />
+      <TrackList trackList={props.trackList} symbol={props.symbol}  buttonFunction={props.buttonFunction}/>
     </div>
   );
 }

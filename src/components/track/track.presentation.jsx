@@ -5,7 +5,7 @@ function TrackView(props) {
   const title = props.track.title;
   const artist = props.track.artist;
   const album = props.track.album;
-  const addSong = props.addSong;
+  const buttonFunction = props.buttonFunction;
   return (
     <div className={styles.trackContainer}>
       <div>
@@ -18,9 +18,9 @@ function TrackView(props) {
       <div className={styles.buttonContainer}>
         <button
           className={styles.addButton}
-          onClick={() => addSong(props.track)}
+          onClick={() => buttonFunction(props.track)}
         >
-          +
+          {props.symbol === true? "+": "-"}
         </button>
       </div>
     </div>

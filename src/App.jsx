@@ -12,17 +12,24 @@ function App() {
     checkAccessToken();
   }, []);
 
-  const [searchSongs, setSearchSongs] = useState([
+  const [searchListTracks, setSearchListTracks] = useState([
     { title: "hola", artist: "Luis", album: "Versión-1" },
     { title: "Paula Sol", artist: "Paula", album: "Versioón-2" },
     { title: "La Mariposa", artist: "Pajaro", album: "El Arbol" },
   ]);
-  const [playSongs, setPlaySongs] = useState([
+  const [playListTracks, setPlayListTracks] = useState([
     { title: "La Mariposa", artist: "Pajaro", album: "El Arbol" },
   ]);
 
-  const addPlaySong = (song) => {
-    setPlaySongs([...playSongs, song]);
+  const addPlaylistSong = (song) => {
+    setPlayListTracks([...playListTracks, song]);
+  };
+
+  const removePlaylistSong = (song) => {
+    const songIndex = playListTracks.findIndex( track => track.title === song.title && track.artist === song.artist && track.album === song.album);
+    const updatedPlaySongs = [...playListTracks];
+    updatedPlaySongs.splice(songIndex, 1);
+    setPlayListTracks(updatedPlaySongs);
   };
 
   return (
@@ -31,8 +38,14 @@ function App() {
       <Searchbar />
       <Button text="Search" style="defaultButton" />
       <div className={styles.trackLists}>
-        <SearchResults songList={searchSongs} addSong={addPlaySong} />
-        <PlayList playSongs={playSongs} />
+        <SearchResults
+          trackList={searchListTracks}
+          buttonFunction={addPlaylistSong}
+        />
+        <PlayList
+          trackList={playListTracks}
+          buttonFunction={removePlaylistSong}
+        />
       </div>
     </div>
   );
