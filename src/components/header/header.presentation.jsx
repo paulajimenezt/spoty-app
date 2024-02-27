@@ -7,8 +7,8 @@ function HeaderView() {
   return (
     <header>
       <h1>Spoty-App</h1>
-      <div className= {styles.buttonContainer}>
-        <Button onClick={authorize} text="Login" style="loginButton" />
+      <div className={styles.buttonContainer}>
+        <Button onClick={authorize} text="Login" buttonStyle="loginButton" />
       </div>
     </header>
   );

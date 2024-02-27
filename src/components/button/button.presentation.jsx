@@ -6,7 +6,7 @@ function Button(props) {
   const buttonParameter = props.buttonParameter || undefined;
   return (
     <button
-      className={styles[props.style]}
+      className={styles[props.buttonStyle]}
       onClick={() => buttonFunction(buttonParameter)}
     >
       {props.text}

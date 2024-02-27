@@ -77,7 +77,11 @@ function App() {
         searchbarText={searchbarText}
         setSearchbarText={setSearchbarText}
       />
-      <Button text="Search" style="defaultButton" onClick={fetchResults} />
+      <Button
+        text="Search"
+        buttonStyle="defaultButton"
+        onClick={fetchResults}
+      />
       <div className={styles.trackLists}>
         <SearchResults
           trackList={searchListTracks}

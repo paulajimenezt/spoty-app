@@ -21,7 +21,7 @@ function PlayListView(props) {
       />
       <Button
         text="Add Playlist"
-        style="loginButton"
+        buttonStyle="loginButton"
         onClick={props.createPlayList}
       />
     </div>
