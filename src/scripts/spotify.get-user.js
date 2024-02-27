@@ -1,19 +1,13 @@
-export const searchSong = async (query) => {
+export const getSpotifyUser = async () => {
   const accessToken = localStorage.getItem("access_token");
 
   if (!accessToken || accessToken === "undefined") {
-    window.alert("Can't complete search: not logged in!");
-    return {};
+    window.alert("Not logged in!");
+    return null;
   }
 
-  const baseURL = "https://api.spotify.com/v1/search";
-  const queryParams = {
-    q: `${query}`,
-    type: "track",
-  };
-
+  const baseURL = "https://api.spotify.com/v1/me";
   const url = new URL(baseURL);
-  url.search = new URLSearchParams(queryParams).toString();
 
   const payload = {
     method: "GET",
@@ -35,18 +29,8 @@ export const searchSong = async (query) => {
     window.alert(
       `Error searching the song in spotify: ${JSON.stringify(response)}`
     );
+    return null;
   } else {
-    if (response?.tracks?.items?.length) {
-      const mappedResponse = response.tracks.items.map((track) => {
-        return {
-          title: track.name,
-          artist: track.artists[0].name,
-          album: track.album.name,
-          uri: track.uri
-        };
-      });
-      return mappedResponse || [];
-    }
-    return [];
+    return response.id;
   }
 };

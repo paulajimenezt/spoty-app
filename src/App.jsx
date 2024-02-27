@@ -7,6 +7,7 @@ import SearchResults from "./components/searchresults/searchresults.container";
 import PlayList from "./components/playlist/playlist.container";
 import { checkAccessToken } from "./scripts/spotify.check-access-token";
 import { searchSong } from "./scripts/spotify.search";
+import { addPlaylist } from "./scripts/spotify.add-playlist";
 
 function App() {
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
 
   const [searchListTracks, setSearchListTracks] = useState([]);
   const [playListTracks, setPlayListTracks] = useState([]);
+  const [playListName, setPlayListName] = useState([]);
   const [searchbarText, setSearchbarText] = useState("");
 
   const addPlaylistSong = (song) => {
@@ -26,21 +28,45 @@ function App() {
       (track) =>
         track.title === song.title &&
         track.artist === song.artist &&
-        track.album === song.album
+        track.album === song.album &&
+        track.uri === song.uri
     );
     const updatedPlaySongs = [...playListTracks];
     updatedPlaySongs.splice(songIndex, 1);
     setPlayListTracks(updatedPlaySongs);
   };
 
-  const fetchResults = (query) => {
-    searchSong(query)
+  const createPlayList = () => {
+    if (!playListName) {
+      window.alert("Playlist name must be filled");
+      return [];
+    }
+    addPlaylist(playListName, playListTracks)
       .then((response) => {
-        setSearchListTracks(response);
+        if (response) {
+          window.alert("Playlist created succesfully");
+        }
       })
       .catch((error) => {
-        // Handle errors if needed
         console.error("Error setting searchListTracks:", error);
+      });
+  };
+
+  const fetchResults = () => {
+    if (!searchbarText) {
+      window.alert("Enter search query");
+      return [];
+    }
+    searchSong(searchbarText)
+      .then((response) => {
+        if (response) {
+          setSearchListTracks(response);
+        } else {
+          console.log("Empty response");
+        }
+      })
+      .catch((error) => {
+        window.alert("Error setting searchListTracks:", error);
       });
   };
 
@@ -51,18 +77,16 @@ function App() {
         searchbarText={searchbarText}
         setSearchbarText={setSearchbarText}
       />
-      <Button
-        text="Search"
-        style="defaultButton"
-        onClick={fetchResults}
-        buttonParameter={searchbarText}
-      />
+      <Button text="Search" style="defaultButton" onClick={fetchResults} />
       <div className={styles.trackLists}>
         <SearchResults
           trackList={searchListTracks}
           buttonFunction={addPlaylistSong}
         />
         <PlayList
+          playListName={playListName}
+          setPlayListName={setPlayListName}
+          createPlayList={createPlayList}
           trackList={playListTracks}
           buttonFunction={removePlaylistSong}
         />

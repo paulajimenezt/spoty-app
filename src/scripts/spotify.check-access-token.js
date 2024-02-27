@@ -1,15 +1,17 @@
+import { getSpotifyUser } from "./spotify.get-user";
+
 export const checkAccessToken = async () => {
   const codeVerifier = localStorage.getItem("code_verifier");
   const accessToken = localStorage.getItem("access_token");
 
   if (accessToken && accessToken !== "undefined") {
-    console.log("Logged in!");
-    return;
-  }
-
-  if (!codeVerifier) {
-    console.error("Login not found");
-    return;
+    const userId = getSpotifyUser();
+    if (userId) {
+      console.log("Logged in!");
+      return;
+    } else {
+      console.log("Not logged in :(");
+    }
   }
 
   const clientId = "eb2e6d0e839643f0abd983569aee9aea";
