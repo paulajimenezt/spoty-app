@@ -15,7 +15,7 @@ export const checkAccessToken = async () => {
   }
 
   const clientId = "eb2e6d0e839643f0abd983569aee9aea";
-  const redirectUri = "http://localhost:3000/";
+  const redirectUri = "https://spoty-app.netlify.app/";
   const requestUrl = "https://accounts.spotify.com/api/token";
 
   const urlParams = new URLSearchParams(window.location.search);
