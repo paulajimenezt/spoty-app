@@ -42,7 +42,8 @@ export const searchSong = async (query) => {
           title: track.name,
           artist: track.artists[0].name,
           album: track.album.name,
-          uri: track.uri
+          img: track.album.images[1].url,
+          uri: track.uri,
         };
       });
       return mappedResponse || [];

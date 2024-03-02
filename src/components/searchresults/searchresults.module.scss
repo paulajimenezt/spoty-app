@@ -8,9 +8,10 @@
     min-width: 55vw;
     height: 50vh;
     border-radius: 1.5rem;
-    background-color: $secondary-color;
+    background-color: var(--card-color);
+    font-family: 'DM Serif Display';
 }
 
 .container {
-    color: white;
+    color: var(--font-color);
 }

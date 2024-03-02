@@ -5,9 +5,11 @@ import Searchbar from "./components/searchbar/searchbar.container";
 import Button from "./components/button/button.presentation";
 import SearchResults from "./components/searchresults/searchresults.container";
 import PlayList from "./components/playlist/playlist.container";
+import LoadingOverlay from "./components/loading/loading-overlay.presentation";
 import { checkAccessToken } from "./scripts/spotify.check-access-token";
 import { searchSong } from "./scripts/spotify.search";
 import { addPlaylist } from "./scripts/spotify.add-playlist";
+import ColorPicker from "./components/color-picker/color-picker.module";
 
 function App() {
   useEffect(() => {
@@ -18,6 +20,8 @@ function App() {
   const [playListTracks, setPlayListTracks] = useState([]);
   const [playListName, setPlayListName] = useState([]);
   const [searchbarText, setSearchbarText] = useState("");
+  let [isLoggedIn, setIsLoggedIn] = useState(true);
+  let [isLoading, setIsLoading] = useState(false);
 
   const addPlaylistSong = (song) => {
     setPlayListTracks([...playListTracks, song]);
@@ -57,6 +61,7 @@ function App() {
       window.alert("Enter search query");
       return [];
     }
+    setIsLoading(true);
     searchSong(searchbarText)
       .then((response) => {
         if (response) {
@@ -67,12 +72,15 @@ function App() {
       })
       .catch((error) => {
         window.alert("Error setting searchListTracks:", error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
     <div className={styles.App}>
+      {/* <ColorPicker /> */}
       <Header />
+      {isLoading && <LoadingOverlay />}
       <Searchbar
         searchbarText={searchbarText}
         setSearchbarText={setSearchbarText}

@@ -1,12 +1,34 @@
-$background-color: #000022;
-$primary-color: #001242;
-$secondary-color: #25a52b;
-$tertiary-color: #1f6c70;
+:root {
+  --tertiary-color: #730e0fe8;
+  --background-color: #000000db;
+  --font-color: #f9f5f5ff;
+  --primary-color: #0c0c0cad;
+  --secondary-color: #5858583b;
+  --card-color: #222222dc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('../public/pexels-stephen-niemeier-63703.jpg');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: $background-color;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 .trackLists {

@@ -24,10 +24,9 @@ export async function authorize() {
   const codeChallenge = base64encode(hashed);
 
   const clientId = "eb2e6d0e839643f0abd983569aee9aea";
-  const redirectUri = "https://spoty-app.netlify.app/";
+  const redirectUri = "http://localhost:3000/";
 
-  const scope =
-    "user-read-private user-read-email playlist-modify-private playlist-modify-public";
+  const scope = "user-read-private user-read-email playlist-modify-private playlist-modify-public";
   const authUrl = new URL("https://accounts.spotify.com/authorize");
 
   // generated in the previous step

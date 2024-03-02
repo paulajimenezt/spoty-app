@@ -9,6 +9,7 @@ function TrackView(props) {
   return (
     <div className={styles.trackContainer}>
       <div>
+        <img/>
         <p className={styles.info}> {title}</p>
         <p className={styles.info}>
           {" "}
