@@ -37,18 +37,12 @@ export const searchSong = async (query) => {
     );
   } else {
     if (response?.tracks?.items?.length) {
-      const knownAlbums = [];
       const mappedResponse = response.tracks.items.map((track) => {
-        let image = track.album.images[1].url;
-        if (knownAlbums.includes(track.album.name)) {
-          image = undefined;
-        }
-        knownAlbums.push(track.album.name);
         return {
           title: track.name,
           artist: track.artists[0].name,
           album: track.album.name,
-          image,
+          image: track.album.images[1].url,
           uri: track.uri,
         };
       });

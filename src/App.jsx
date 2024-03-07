@@ -9,19 +9,17 @@ import LoadingOverlay from "./components/loading/loading-overlay.presentation";
 import { checkAccessToken } from "./scripts/spotify.check-access-token";
 import { searchSong } from "./scripts/spotify.search";
 import { addPlaylist } from "./scripts/spotify.add-playlist";
-import ColorPicker from "./components/color-picker/color-picker.module";
 
 function App() {
-  useEffect(() => {
-    checkAccessToken();
-  }, []);
-
   const [searchListTracks, setSearchListTracks] = useState([]);
   const [playListTracks, setPlayListTracks] = useState([]);
   const [playListName, setPlayListName] = useState([]);
   const [searchbarText, setSearchbarText] = useState("");
-  let [isLoggedIn, setIsLoggedIn] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    checkAccessToken();
+  }, []);
 
   const addPlaylistSong = (song) => {
     setPlayListTracks([...playListTracks, song]);
@@ -45,6 +43,7 @@ function App() {
       window.alert("Playlist name must be filled");
       return [];
     }
+    setIsLoading(true);
     addPlaylist(playListName, playListTracks)
       .then((response) => {
         if (response) {
@@ -53,7 +52,8 @@ function App() {
       })
       .catch((error) => {
         console.error("Error setting searchListTracks:", error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const fetchResults = () => {

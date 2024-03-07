@@ -1,11 +1,15 @@
 .trackContainer {
   text-align: center;
-  width: 11vw;
+  width: 15vw;
+  height: 20vw;
   background-color: rgba(0, 0, 0, 0.534);
   color: var(--font-color);
   padding: 1rem;
   margin: 1rem;
+  overflow: hidden;
 }
+
+
 
 .image {
   width: 10vw;

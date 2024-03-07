@@ -5,10 +5,10 @@
 
 .tracklistContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  max-height: calc(100vh * 3);
+
 }
 
 ::-webkit-scrollbar {

@@ -7,10 +7,9 @@ export const checkAccessToken = async () => {
   if (accessToken && accessToken !== "undefined") {
     const userId = getSpotifyUser();
     if (userId) {
-      console.log("Logged in!");
-      return;
+      return true;
     } else {
-      console.log("Not logged in :(");
+      return false;
     }
   }
 
@@ -44,5 +43,6 @@ export const checkAccessToken = async () => {
     localStorage.removeItem("code_verifier");
   } else {
     localStorage.setItem("access_token", response.access_token);
+    return true;
   }
 };
