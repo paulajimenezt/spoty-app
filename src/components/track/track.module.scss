@@ -1,37 +1,32 @@
 .trackContainer {
-    display: grid;
-    text-align: left;
-    grid-template-columns: 8fr 1fr;
-    grid-template-rows: 2;
-    background-color: rgb(29, 88, 32);
-    width: 100%;
-    color: var(--font-color);
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    align-items: center;
+  text-align: center;
+  width: 11vw;
+  background-color: rgba(0, 0, 0, 0.534);
+  color: var(--font-color);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.image {
+  width: 10vw;
+  height: 10vw;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .info {
-    margin: 0;
-    padding-left: 1rem;
-}
-
-.buttonContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  margin: 0;
 }
 
 .addButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border-color: transparent;
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
-    color: var(--font-color);
-    margin-right: 1rem;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-color: transparent;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  color: var(--font-color);
+  margin-right: 1rem;
 }

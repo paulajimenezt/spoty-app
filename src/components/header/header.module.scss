@@ -1,28 +1,21 @@
 @import "../../App.module.scss";
 
 header {
-    background-color: var(--secondary-color);
-    vertical-align: middle;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    color: var(--font-color);
-    height: 9vh;
-    font-family: 'DM Serif Display';
-    font-weight: 600;
-    font-size: 26px;
-    background: none;
-                            
-    
-  
-
+  background-color: var(--secondary-color);
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--font-color);
+  height: 9vh;
+  font-family: "DM Serif Display";
+  font-weight: 600;
+  font-size: 26px;
+  background: none;
 }
 
-
-
-
 .buttonContainer {
-    position: absolute;
-    margin-right: 1rem;
-    right: 0;
+  position: absolute;
+  margin-right: 1rem;
+  right: 0;
 }

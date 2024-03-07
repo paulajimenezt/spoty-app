@@ -3,26 +3,26 @@ import styles from "./track.module.scss";
 
 function TrackView(props) {
   const title = props.track.title;
+  const index = props.index;
   const artist = props.track.artist;
   const album = props.track.album;
+  const image = props.track.image;
   const buttonFunction = props.buttonFunction;
   return (
     <div className={styles.trackContainer}>
-      <div>
-        <img/>
+      <div onClick={() => buttonFunction(props.track)}>
+        {image && (
+          <img
+            className={styles.image}
+            src={image}
+            alt={`album cover for ${title} from ${artist}`}
+          />
+        )}
+        <p className={styles.index}>{index}</p>
         <p className={styles.info}> {title}</p>
         <p className={styles.info}>
-          {" "}
-          {artist}  |  {album}
+          <i>{artist}</i> | {album}
         </p>
-      </div>
-      <div className={styles.buttonContainer}>
-        <button
-          className={styles.addButton}
-          onClick={() => buttonFunction(props.track)}
-        >
-          {props.symbol === true? "+": "-"}
-        </button>
       </div>
     </div>
   );
