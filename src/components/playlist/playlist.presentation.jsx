@@ -9,8 +9,8 @@ function PlayListView(props) {
       <div className={styles.container}>
         <input
           type="text"
-          minLength= '1'
-          maxLength='50'
+          minLength="1"
+          maxLength="50"
           value={props.playListName}
           onChange={props.handlePlaylistNameChange}
           className={styles.input}

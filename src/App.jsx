@@ -64,7 +64,7 @@ function App() {
     setIsLoading(true);
     searchSong(searchbarText)
       .then((response) => {
-        if (response) {
+        if (response?.length) {
           setSearchListTracks(response);
         } else {
           console.log("Empty response");

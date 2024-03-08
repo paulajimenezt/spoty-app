@@ -7,9 +7,11 @@
     align-items: center;
     background-color: var(--card-color);
     color: var(--font-color);
-    min-width: 35vw;
-    height: 50vh;
+    min-width: 150px;
+    width: 35%;
+    height: 60vh;
     border-radius: 1.5rem;
+    margin: 3vh;
 }
 
 .container {
@@ -27,5 +29,5 @@ input {
     margin-top: 0.67em;
     margin-bottom: 0.67em;
     outline: none;
-    font-family: 'DM Serif Display';
+    font-family: "Roboto", sans-serif;
 }

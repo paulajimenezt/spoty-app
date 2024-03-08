@@ -6,15 +6,13 @@ function PlayList(props) {
     props.setPlayListName(event.target.value);
   };
   return (
-    <div>
-      <PlayListView
-        playlistName={props.playListName}
-        trackList={props.trackList}
-        buttonFunction={props.buttonFunction}
-        createPlayList={props.createPlayList}
-        handlePlaylistNameChange={handlePlaylistNameChange}
-      />
-    </div>
+    <PlayListView
+      playlistName={props.playListName}
+      trackList={props.trackList}
+      buttonFunction={props.buttonFunction}
+      createPlayList={props.createPlayList}
+      handlePlaylistNameChange={handlePlaylistNameChange}
+    />
   );
 }
 

@@ -1,11 +1,12 @@
 .parentContainer {
   overflow: auto;
-  width: 80%;
+  width: 98%;
 }
 
 .tracklistContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 

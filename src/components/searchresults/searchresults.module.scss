@@ -5,11 +5,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-width: 55vw;
-    height: 50vh;
+    min-width: 150px;
+    width: 65%;
+    max-width: 120vh;
+    height: 60vh;
     border-radius: 1.5rem;
+    margin: 3vh;
     background-color: var(--card-color);
-    font-family: 'DM Serif Display';
+    font-family: "Roboto", sans-serif;
 }
 
 .container {

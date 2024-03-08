@@ -9,8 +9,11 @@ function TrackView(props) {
   const image = props.track.image;
   const buttonFunction = props.buttonFunction;
   return (
-    <div className={styles.trackContainer}>
-      <div onClick={() => buttonFunction(props.track)}>
+    <div
+      className={styles.trackContainer}
+      onClick={() => buttonFunction(props.track)}
+    >
+      <div className={styles.imageContainer}>
         {image && (
           <img
             className={styles.image}
@@ -18,11 +21,20 @@ function TrackView(props) {
             alt={`album cover for ${title} from ${artist}`}
           />
         )}
-        <p className={styles.index}>{index}</p>
-        <p className={styles.info}> {title}</p>
-        <p className={styles.info}>
-          <i>{artist}</i> | {album}
-        </p>
+      </div>
+      <div className={styles.informationContainer}>
+        <div className={styles.index}>
+          <p>{index}</p>
+        </div>
+        <div className={`${styles.title} ${styles.animated}`}>
+          <span> {title}</span>
+        </div>
+        <div className={`${styles.artist} ${styles.animated}`}>
+          <span>{artist}</span>
+        </div>
+        <div className={`${styles.album} ${styles.animated}`}>
+          <span>{album}</span>
+        </div>
       </div>
     </div>
   );
