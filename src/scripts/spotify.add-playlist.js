@@ -1,11 +1,11 @@
 import { addSongsToPlaylist } from "./spotify.add-playlist-songs";
 import { getSpotifyUser } from "./spotify.get-user";
 
-export const addPlaylist = async (name, songs) => {
+export const addPlaylist = async (name, songs, setLoggedStatus) => {
   const accessToken = localStorage.getItem("access_token");
 
   if (!accessToken || accessToken === "undefined") {
-    window.alert("Can't complete search: not logged in!");
+    setLoggedStatus(false)
     return {};
   }
 

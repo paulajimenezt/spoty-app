@@ -23,7 +23,7 @@ function PlayListView(props) {
       />
       <Button
         text="Add Playlist"
-        buttonStyle="loginButton"
+        buttonStyle="defaultButton"
         onClick={props.createPlayList}
       />
     </div>

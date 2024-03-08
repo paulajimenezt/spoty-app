@@ -1,8 +1,8 @@
-export const searchSong = async (query) => {
+export const searchSong = async (query, setLoggedStatus) => {
   const accessToken = localStorage.getItem("access_token");
 
   if (!accessToken || accessToken === "undefined") {
-    window.alert("Can't complete search: not logged in!");
+    setLoggedStatus(false);
     return {};
   }
 

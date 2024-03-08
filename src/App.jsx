@@ -6,6 +6,7 @@ import Button from "./components/button/button.presentation";
 import SearchResults from "./components/searchresults/searchresults.container";
 import PlayList from "./components/playlist/playlist.container";
 import LoadingOverlay from "./components/loading/loading-overlay.presentation";
+import Login from "./components/login-screen/login-screen.presentation";
 import { checkAccessToken } from "./scripts/spotify.check-access-token";
 import { searchSong } from "./scripts/spotify.search";
 import { addPlaylist } from "./scripts/spotify.add-playlist";
@@ -15,11 +16,12 @@ function App() {
   const [playListTracks, setPlayListTracks] = useState([]);
   const [playListName, setPlayListName] = useState([]);
   const [searchbarText, setSearchbarText] = useState("");
+  let [isLoggedIn, setisLoggedIn] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    checkAccessToken();
-  }, []);
+    checkAccessToken(setisLoggedIn)
+  }, [isLoggedIn]);
 
   const addPlaylistSong = (song) => {
     setPlayListTracks([...playListTracks, song]);
@@ -44,7 +46,7 @@ function App() {
       return [];
     }
     setIsLoading(true);
-    addPlaylist(playListName, playListTracks)
+    addPlaylist(playListName, playListTracks, setisLoggedIn)
       .then((response) => {
         if (response) {
           window.alert("Playlist created succesfully");
@@ -62,7 +64,7 @@ function App() {
       return [];
     }
     setIsLoading(true);
-    searchSong(searchbarText)
+    searchSong(searchbarText, setisLoggedIn)
       .then((response) => {
         if (response?.length) {
           setSearchListTracks(response);
@@ -80,6 +82,7 @@ function App() {
     <div className={styles.App}>
       {/* <ColorPicker /> */}
       <Header />
+      {!isLoggedIn && <Login />}
       {isLoading && <LoadingOverlay />}
       <Searchbar
         searchbarText={searchbarText}

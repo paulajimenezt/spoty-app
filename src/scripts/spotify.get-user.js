@@ -2,7 +2,6 @@ export const getSpotifyUser = async () => {
   const accessToken = localStorage.getItem("access_token");
 
   if (!accessToken || accessToken === "undefined") {
-    window.alert("Not logged in!");
     return null;
   }
 
